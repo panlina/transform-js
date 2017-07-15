@@ -1,4 +1,13 @@
 {
   "name": "transform-js",
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "dependencies": {
+    "cssx": "git+https://github.com/panlina/cssx.git",
+    "js2html": "git+https://github.com/panlina/js2html.git",
+    "acorn": "^5.1.1",
+    "escodegen": "^1.8.1"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
 }
