@@ -23,6 +23,14 @@ function apply(style, element) {
 			case 'value':
 				element.text(style[name]);
 				break;
+			case 'before':
+				var $ = element.constructor;
+				var js = style[name];
+				var program = acorn.parse(js);
+				var js = program.body[0];
+				var html = js2html.js2html(js);
+				element.before(html);
+				break;
 		}
 }
 module.exports = transform;
