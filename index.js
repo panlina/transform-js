@@ -4,7 +4,7 @@ var cssx = require('cssx');
 var js2html = require('js2html');
 function transform(_cssx) {
 	return function (js) {
-		var js = acorn.parseExpressionAt(js);
+		var js = acorn.parse(js);
 		var html = js2html.js2html(js);
 		var $ = html.constructor;
 		var root = $.root();
