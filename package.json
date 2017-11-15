@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "dependencies": {
     "cssx": "git+https://github.com/panlina/cssx.git",
-    "js2html": "git+https://github.com/panlina/js2html.git",
+    "css-select": "^1.3.0-rc0",
+    "css-select-adapter-estree": "git+https://github.com/panlina/css-select-adapter-estree.git",
     "acorn": "^5.1.1",
     "escodegen": "^1.8.1"
   },
