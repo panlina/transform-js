@@ -31,6 +31,12 @@ function apply(style, element) {
 				var js = program.body[0];
 				element.before(js);
 				break;
+			case 'after':
+				var js = style[name];
+				var program = acorn.parse(js);
+				var js = program.body[0];
+				element.after(js);
+				break;
 		}
 }
 module.exports = transform;
