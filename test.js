@@ -1,6 +1,7 @@
+var fs = require('fs');
 var transform = require('.');
-var js = "(function(){var a=0;return a;})();";
-var cssx = '.literal{"value":123}.return{"before":"statement(console.log(\'return\');)"}';
+var js = fs.readFileSync("js.js", { encoding: 'utf8' });
+var cssx = fs.readFileSync("cssx.cssx", { encoding: 'utf8' });
 console.log(js);
 var js = transform(cssx)(js);
 console.log(js);

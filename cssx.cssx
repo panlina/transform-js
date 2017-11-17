@@ -1,0 +1,2 @@
+.literal{"value":123}
+.return{"before":"statement(console.log('return');)"}
