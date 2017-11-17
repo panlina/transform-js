@@ -35,6 +35,26 @@ function apply(style, element) {
 				var js = evaluate(js);
 				element.after(js);
 				break;
+			case 'append':
+				var js = style[name];
+				var js = js.split(':');
+				if (js.length > 1)
+					var property = js[0], value = js[1];
+				else
+					var property, value = js[0];
+				var js = evaluate(value);
+				element.append(js, property);
+				break;
+			case 'prepend':
+				var js = style[name];
+				var js = js.split(':');
+				if (js.length > 1)
+					var property = js[0], value = js[1];
+				else
+					var property, value = js[0];
+				var js = evaluate(value);
+				element.prepend(js, property);
+				break;
 		}
 }
 function evaluate(expression) {
