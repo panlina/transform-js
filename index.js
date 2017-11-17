@@ -27,16 +27,24 @@ function apply(style, element) {
 				break;
 			case 'before':
 				var js = style[name];
-				var program = acorn.parse(js);
-				var js = program.body[0];
+				var js = evaluate(js);
 				element.before(js);
 				break;
 			case 'after':
 				var js = style[name];
-				var program = acorn.parse(js);
-				var js = program.body[0];
+				var js = evaluate(js);
 				element.after(js);
 				break;
 		}
+}
+function evaluate(expression) {
+	var match = expression.match(/(\w+)\((.*)\)$/);
+	var type = match[1], value = match[2];
+	switch (type) {
+		case "expression":
+			return acorn.parseExpressionAt(value);
+		case "statement":
+			return acorn.parse(value).body[0];
+	}
 }
 module.exports = transform;
