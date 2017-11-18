@@ -58,6 +58,11 @@ function apply(style, element) {
 			case 'remove':
 				element.remove();
 				break;
+			case 'replace':
+				var js = style[name];
+				var js = evaluate(js);
+				element.replace(js);
+				break;
 		}
 }
 function evaluate(expression) {
