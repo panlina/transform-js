@@ -55,6 +55,9 @@ function apply(style, element) {
 				var js = evaluate(value);
 				element.prepend(js, property);
 				break;
+			case 'remove':
+				element.remove();
+				break;
 		}
 }
 function evaluate(expression) {
