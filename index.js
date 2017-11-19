@@ -25,6 +25,10 @@ function apply(style, element) {
 			case 'value':
 				element.value.value = style[name];
 				break;
+			case 'attr':
+				for (var i in style[name])
+					element.value[i] = style[name][i];
+				break;
 			case 'before':
 				var js = style[name];
 				var js = evaluate(js);
