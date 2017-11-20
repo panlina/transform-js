@@ -67,6 +67,14 @@ function apply(style, element) {
 				var js = evaluate(js);
 				element.replace(js);
 				break;
+			case 'wrap':
+				var js = style[name];
+				var js = evaluate(js);
+				var $ = select('.identifier[name="$"]', new Node(js), { adapter: adapter });
+				for (var i in $)
+					$[i].replace(element.value);
+				element.replace(js);
+				break;
 		}
 }
 function evaluate(expression) {
