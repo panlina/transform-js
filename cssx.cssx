@@ -1,2 +1,11 @@
-.literal{"value":123}
-.return{"before":"statement(console.log('return');)"}
+.function .identifier[name="x"]{"replace":"expression(m)"}
+.function .identifier[name="y"]{"replace":"expression(n)"}
+decl>#init{"remove":0}
+statement.expression:has(.binary[operator="="]:has(#left[name="a"])){
+	"after":"statement(console.log(a);)"
+}
+.binary[operator=">"]{"attr":{"operator":">="}}
+.if>#consequent{"replace":"statement(console.log('if');)"}
+.if>#alternate{"replace":"statement(console.log('else');)"}
+.if>#test{"wrap":"expression(f($))"}
+.return{"remove":0}
